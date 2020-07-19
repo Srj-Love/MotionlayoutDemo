@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!-- IDs:-  Blue:- s1,  Green:- s2, Red:- s3 -->
+
+    //navigate from blue to Green transition
+    <Transition
+        motion:constraintSetEnd="@+id/s2"
+        motion:constraintSetStart="@+id/s1"
+        motion:duration="700" />
+
+    //navigate from Green to blue transition
+    <Transition
+        motion:constraintSetEnd="@+id/s1"
+        motion:constraintSetStart="@+id/s2"
+        motion:duration="700" />
+
+    //navigate from Green to red transition
+    <Transition
+        motion:constraintSetEnd="@+id/s3"
+        motion:constraintSetStart="@+id/s2"
+        motion:duration="700" />
+
+    // States
+    <ConstraintSet android:id="@+id/s1">
+        // When Blue Card in focus
+        <Constraint android:id="@+id/v1">
+
+            <Transform
+                android:rotationY="0"
+                android:translationX="0dp" />
+        </Constraint>
+
+        <Constraint android:id="@+id/v2">
+            // Rotate to look like corousel
+            <Transform
+                android:rotationY="-15"
+                android:translationX="250dp" />
+
+        </Constraint>
+
+
+        <Constraint android:id="@+id/v3">
+            <Transform
+                android:rotationY="-15"
+                android:translationX="500dp" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/s2">
+        // When Green Card in focus
+        <Constraint android:id="@+id/v1">
+            <Transform
+                android:rotationY="15"
+                android:translationX="-250dp" />
+        </Constraint>
+
+        <Constraint android:id="@+id/v2">
+            <Transform
+                android:rotationY="0"
+                android:translationX="0dp" />
+        </Constraint>
+
+        <Constraint android:id="@+id/v3">
+            <Transform
+                android:rotationY="-15"
+                android:translationX="250dp" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/s3">
+        // When Red Card in focus
+        <Constraint android:id="@+id/v1">
+            <Transform
+                android:rotationY="15"
+                android:translationX="-500dp" />
+        </Constraint>
+
+        <Constraint android:id="@+id/v2">
+            <Transform
+                android:rotationY="15"
+                android:translationX="-250dp" />
+        </Constraint>
+
+        <Constraint android:id="@+id/v3">
+            <Transform
+                android:rotationY="0"
+                android:translationX="0dp" />
+        </Constraint>
+    </ConstraintSet>
+
+
+</MotionScene>
